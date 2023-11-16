@@ -1,4 +1,7 @@
 class Television():
+    '''
+    Minimum and Maximum volumes/ channels
+    '''
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
@@ -11,6 +14,10 @@ class Television():
         self.__channel = Television.MIN_CHANNEL
     
     def power(self):
+        '''
+        
+        Turn the power on/off
+        '''
         if self.__status == True:
             self.__status = False
     
@@ -18,6 +25,10 @@ class Television():
             self.__status = True
     
     def mute(self):
+        '''
+        Mute and unmute the TV volume
+        '''
+
         if self.__status == False:
             return
         
@@ -29,6 +40,7 @@ class Television():
         
 
     def channel_up(self):
+        '''Turn the tv channel up 1. Resets TV to minimum channel if TV is on max channel'''
         if self.__status == False:
             return
         elif self.__channel == Television.MAX_CHANNEL:
@@ -38,6 +50,7 @@ class Television():
     
 
     def channel_down(self):
+        '''Turn the tv channel down by 1. Resets TV to maximum channel if TV is on minimum channel'''
         if self.__status == False:
             return
         elif self.__channel == Television.MIN_CHANNEL:
@@ -46,6 +59,7 @@ class Television():
             self.__channel -= 1
 
     def volume_up(self):
+        '''Increase TV volume'''
         if self.__status == False:
             return
         
@@ -57,6 +71,7 @@ class Television():
             self.__volume += 1
 
     def volume_down(self):
+        '''Turn down TV volume by 1.'''
         if self.__status == False:
             return
         
@@ -67,8 +82,6 @@ class Television():
 
     def __str__(self):
         if self.__muted == True:
-                    return f'Power = [{self.__status}], Channel = [{self.__channel}], Volume = [0]'
+            return f'Power = [{self.__status}], Channel = [{self.__channel}], Volume = [0]'
     
         return f'Power = [{self.__status}], Channel = [{self.__channel}], Volume = [{self.__volume}]'
-    
-
